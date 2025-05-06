@@ -22,8 +22,9 @@ export async function getPost(req, res, next) {
 
 // 포스트를 생성하는 함수
 export async function createPost(req, res, next) {
-  const { userid, name, text } = req.body;
-  const post = await postRepository.create(userid, name, text);
+  const text = req.body;
+  console.log("req.useridx: ", req.useridx);
+  const post = await postRepository.create(text, req.useridx);
   res.status(201).json(post);
 }
 
@@ -36,10 +37,10 @@ export async function updatePost(req, res, next) {
     return res.status(404).json({ message: `${id}의 트윗이 없습니다` });
   }
   console.log("------------");
-  console.log(post.userid);
-  console.log(req.userid);
+  console.log(post.useridx);
+  console.log(req.useridx);
   console.log("------------");
-  if (post.userid !== req.userid) {
+  if (post.useridx !== req.useridx) {
     return res.sendStatus(403);
   }
 
@@ -54,7 +55,7 @@ export async function deletePost(req, res, next) {
   if (!post) {
     return res.status(404).json({ message: `${id}의 포스트가 없습니다` });
   }
-  if (post.userid !== req.userid) {
+  if (post.useridx !== req.useridx) {
     return res.sendStatus(403);
   }
   await postRepository.remove(id);

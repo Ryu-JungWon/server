@@ -16,5 +16,5 @@ app.use((req, res, next) => {
 });
 
 // DB연결 확인
-db.getConnection().then((connection) => console.log(connection));
+// db.getConnection().then((connection) => console.log(connection));
 app.listen(config.host.port);

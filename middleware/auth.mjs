@@ -19,16 +19,16 @@ export const isAuth = async (req, res, next) => {
       console.log("토큰 에러");
       return res.status(401).json(AUTH_ERROR);
     }
-    console.log(decoded.id);
+    console.log("decoded.idx: ", decoded.id);
     const user = await authRepository.findById(decoded.id);
     if (!user) {
       console.log("아이디 없음");
       return res.status(401).json(AUTH_ERROR);
     }
-    console.log("user.id: ", user.id);
+    console.log("user.idx: ", user.idx);
     console.log("user.userid: ", user.userid);
 
-    req.userid = user.userid;
+    req.useridx = user.idx;
     next();
   });
 };
