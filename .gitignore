@@ -1,0 +1,36 @@
+# Node.js 의존성 폴더
+node_modules/
+
+# 운영체제별 불필요한 파일
+.DS_Store
+Thumbs.db
+
+# 빌드 결과물 (예: TypeScript, Babel, Webpack)
+dist/
+build/
+
+# 캐시 파일
+.cache/
+.next/
+out/
+coverage/
+
+# IDE/에디터 관련 파일
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# 테스트 결과
+coverage/
+
+# 로그 디렉토리
+logs
+*.log
+
+# npm 관련
+package-lock.json 
+yarn.lock 
+pnpm-lock.yaml
